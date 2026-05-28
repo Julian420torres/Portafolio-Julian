@@ -1,0 +1,103 @@
+---
+import Badge from "../components/Badge.astro";
+import SectionContainer from "../components/SectionContainer.astro";
+import Welcome from "../components/Welcome.astro";
+import Layout from "../layouts/Layout.astro";
+import LinkedInIcon from "../components/icons/Linkedin.astro";
+import SocialPill from "../components/SocialPill.astro";
+import GitHubIcon from "../components/icons/GitHub.astro";
+import CorreoIcon from "../components/icons/Correo.astro";
+import DescargaCv from "../components/icons/DescargaCv.astro";
+import Experiencia from "../components/Experiencia.astro";
+import Briefcase from "../components/icons/Briefcase.astro";
+import Proyect from "../components/icons/Proyect.astro";
+import Projects from "../components/Projects.astro";
+---
+
+<Layout
+  title="Julian Torres | QA Tester & Desarrollador Web"
+  description="Tecnólogo en Sistemas de Información con experiencia en pruebas de software manuales y desarrollo web. He participado en validación funcional, pruebas de regresión y detección de errores, además de construir aplicaciones con Laravel y Angular. Manejo bases de datos MySQL y me destaco por mi enfoque analítico, responsabilidad y aprendizaje continuo."
+>
+  <main class="px-4">
+    <SectionContainer class="py-17 pb-24">
+      <!-- Avatar centrado con anillo luminoso -->
+      <div class="flex justify-center mb-8">
+        <div class="relative group">
+          <!-- Anillo animado exterior -->
+          <div
+            class="absolute inset-0 rounded-full bg-gradient-to-tr from-blue-500 via-cyan-400 to-blue-700 animate-spin-slow blur-sm opacity-80 scale-110"
+          >
+          </div>
+          <!-- Anillo sólido interior -->
+          <div
+            class="absolute inset-0 rounded-full bg-gradient-to-tr from-blue-400 to-cyan-300 scale-105"
+          >
+          </div>
+          <!-- Imagen -->
+          <img
+            class="relative rounded-full size-32 md:size-40 border-4 border-[#0a0f2c] object-cover shadow-2xl group-hover:scale-105 transition-transform duration-300"
+            src="/Perfil.jpeg"
+            alt="Julian Torres"
+          />
+        </div>
+      </div>
+
+      <h1
+        class="text-white text-3xl md:text-4xl lg:text-5xl font-bold flex flex-row items-center gap-x-4 pb-6 lg:pb-10"
+      >
+        Hey, soy Julian Torres
+        <a
+          href="https://www.linkedin.com/in/julian-torres-b588452b3/"
+          target="_blank"
+          rel="noopener"
+        >
+          <Badge>Disponible para trabajar</Badge>
+        </a>
+      </h1>
+
+      <h2 class="text-xl lg:text-2xl text-wrap max-w-[700px]">
+        Tecnólogo en Sistemas de Información con experiencia en pruebas de
+        software manuales y conocimientos en desarrollo web. Participación en
+        validación funcional, pruebas de regresión no automatizadas y detección
+        de errores, así como en el desarrollo de aplicaciones con Laravel y
+        Angular. Manejo de bases de datos MySQL, con enfoque analítico,
+        responsabilidad y disposición para el aprendizaje continuo.
+      </h2>
+
+      <nav class="flex gap-4 mt-8 flex-wrap">
+        <SocialPill href="/Cv.pdf" download="Julian_Torres_CV.pdf">
+          <DescargaCv class="size-6" />
+          Descargar CV
+        </SocialPill>
+        <SocialPill href="https://www.linkedin.com/in/julian-torres-b588452b3/">
+          <LinkedInIcon class="size-4 md:size-6" />
+          LinkedIn
+        </SocialPill>
+        <SocialPill href="https://github.com/Julian420torres">
+          <GitHubIcon class="size-4 md:size-6" />
+          GitHub
+        </SocialPill>
+        <SocialPill href="mailto:torresjulian5634@gmail.com">
+          <CorreoIcon class="size-4 md:size-6" />
+          torresjulian5634@gmail.com
+        </SocialPill>
+      </nav>
+    </SectionContainer>
+
+    <SectionContainer id="experiencia">
+      <h2 class="text-3xl font-semibold mb-6 flex gap-x-3 items-center">
+        <Briefcase class="size-7" />
+        Experiencia Laboral
+      </h2>
+      <Experiencia />
+    </SectionContainer>
+
+    <SectionContainer id="experiencia">
+      <h2 class="text-3xl font-semibold mb-6 flex gap-x-3 items-center">
+        <Proyect class="size-7" />
+        Proyectos
+      </h2>
+      <Projects />
+    </SectionContainer>
+  </main>
+</Layout>
