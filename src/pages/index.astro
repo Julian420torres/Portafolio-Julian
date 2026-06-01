@@ -12,6 +12,8 @@ import Experiencia from "../components/Experiencia.astro";
 import Briefcase from "../components/icons/Briefcase.astro";
 import Proyect from "../components/icons/Proyect.astro";
 import Projects from "../components/Projects.astro";
+import SobreMi from "../components/Sobre_mi.astro";
+import Persona from "../components/icons/Persona.astro";
 ---
 
 <Layout
@@ -43,7 +45,7 @@ import Projects from "../components/Projects.astro";
       </div>
 
       <h1
-        class="text-white text-3xl md:text-4xl lg:text-5xl font-bold flex flex-row items-center gap-x-4 pb-6 lg:pb-10"
+        class="text-white text-3xl md:text-4xl font-bold flex flex-row items-center gap-x-4 pb-6 lg:pb-10"
       >
         Hey, soy Julian Torres
         <a
@@ -55,7 +57,7 @@ import Projects from "../components/Projects.astro";
         </a>
       </h1>
 
-      <h2 class="text-xl lg:text-2xl text-wrap max-w-[700px]">
+      <h2 class="text-xl text-wrap max-w-[700px]">
         Tecnólogo en Sistemas de Información con experiencia en pruebas de
         software manuales y conocimientos en desarrollo web. Participación en
         validación funcional, pruebas de regresión no automatizadas y detección
@@ -98,6 +100,14 @@ import Projects from "../components/Projects.astro";
         Proyectos
       </h2>
       <Projects />
+    </SectionContainer>
+
+    <SectionContainer id="sobre-mi">
+      <h2 class="text-3xl font-semibold mb-6 flex gap-x-3 items-center">
+        <Persona class="size-7" />
+        Sobre mí
+      </h2>
+      <SobreMi />
     </SectionContainer>
   </main>
 </Layout>
