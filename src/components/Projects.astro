@@ -1,13 +1,41 @@
 ---
+import Laravel from "../components/icons/Laravel.astro";
+import Php from "../components/icons/Php.astro";
+import Bootstrap from "../components/icons/Bootstrap.astro";
+import Mysql from "../components/icons/Mysql.astro";
+
+const TAGS = {
+  LARAVEL: {
+    name: "LARAVEL",
+    class: "bg-black text-white",
+    icon: Laravel,
+  },
+  PHP: {
+    name: "PHP",
+    class: "bg-[#4F5B93] text-white",
+    icon: Php,
+  },
+  BOOSTRAP: {
+    name: "BOOSTRAP",
+    class: "bg-[#4a0099] text-white",
+    icon: Bootstrap,
+  },
+  MYSQL: {
+    name: "MySQL",
+    class: "bg-[#00758F] text-white",
+    icon: Mysql,
+  },
+};
+
 const PROJECTS = [
   {
-    title: "SISTEMA DE VENTAS PARA EL RESTAURANTE LA FABRICA",
+    title: "SISTEMA DE VENTAS PARA EL RESTAURANTE",
     description:
-      "Sistema de ventas desarrollado para optimizar la gestión administrativa y comercial del restaurante La Fábrica. El proyecto permite administrar pedidos, productos, clientes y ventas en tiempo real, mejorando la organización del negocio y reduciendo errores en los procesos manuales. Además, cuenta con una interfaz intuitiva y dinámica enfocada en brindar una experiencia rápida, eficiente y moderna tanto para empleados como para administradores.",
+      "Sistema de ventas desarrollado para optimizar la gestión administrativa y comercial de un restaurante. El proyecto permite administrar pedidos, productos, clientes y ventas en tiempo real, mejorando la organización del negocio y reduciendo errores en los procesos manuales. Además, cuenta con una interfaz intuitiva y dinámica enfocada en brindar una experiencia rápida, eficiente y moderna tanto para empleados como para administradores.",
     link: "https://svgl.app/",
     github: "https://github.com/Julian420torres/Proyecto-Final",
     image: "/projects/foto_proyecto.webp",
-    tags: ["HTML", "CSS", "JavaScript"],
+    tags: [TAGS.LARAVEL, TAGS.PHP, TAGS.BOOSTRAP, TAGS.MYSQL],
   },
 ];
 ---
@@ -17,9 +45,16 @@ const PROJECTS = [
     <article>
       <h3 class="text-2xl font-semibold text-yellow-200 mb-2">{title}</h3>
       <p class="text-lg mb-4 text-pretty">{description}</p>
-      <ul>
+      <ul class="flex gap-x-2 flex-row">
         {tags.map((tag) => (
-          <li>{tag}</li>
+          <li>
+            <span
+              class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2`}
+            >
+              <tag.icon class="size-4" />
+              {tag.name}
+            </span>
+          </li>
         ))}
       </ul>
       <img
