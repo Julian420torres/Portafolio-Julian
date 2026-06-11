@@ -14,18 +14,20 @@
       method="POST"
       class="space-y-4"
     >
-      <!-- Evita spam -->
+      <!-- Configuración FormSubmit -->
       <input type="hidden" name="_captcha" value="false" />
 
-      <!-- Asunto del correo -->
       <input
         type="hidden"
         name="_subject"
-        value="Nuevo mensaje desde mi portafolio"
+        value="Nuevo mensaje desde el portafolio de Julian Torres"
       />
 
-      <!-- Página de gracias -->
-      <input type="hidden" name="_next" value="https://tu-dominio.vercel.app" />
+      <input
+        type="hidden"
+        name="_next"
+        value="https://portafolio-julian-one.vercel.app/#contacto"
+      />
 
       <input
         type="text"
@@ -38,7 +40,7 @@
       <input
         type="email"
         name="email"
-        placeholder="Tu correo"
+        placeholder="Tu correo electrónico"
         required
         class="w-full rounded-xl border border-white/10 bg-black/30 px-4 py-3 text-white outline-none focus:border-blue-500"
       />
