@@ -1,0 +1,70 @@
+<section class="w-full">
+  <div
+    class="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm"
+  >
+    <h3 class="text-2xl font-bold text-white mb-2">Contáctame</h3>
+
+    <p class="text-gray-400 mb-6">
+      ¿Tienes alguna oportunidad laboral, proyecto o consulta? Puedes enviarme
+      un mensaje y te responderé lo antes posible.
+    </p>
+
+    <form
+      action="https://formsubmit.co/torresjulian5634@gmail.com"
+      method="POST"
+      class="space-y-4"
+    >
+      <!-- Evita spam -->
+      <input type="hidden" name="_captcha" value="false" />
+
+      <!-- Asunto del correo -->
+      <input
+        type="hidden"
+        name="_subject"
+        value="Nuevo mensaje desde mi portafolio"
+      />
+
+      <!-- Página de gracias -->
+      <input type="hidden" name="_next" value="https://tu-dominio.vercel.app" />
+
+      <input
+        type="text"
+        name="name"
+        placeholder="Tu nombre"
+        required
+        class="w-full rounded-xl border border-white/10 bg-black/30 px-4 py-3 text-white outline-none focus:border-blue-500"
+      />
+
+      <input
+        type="email"
+        name="email"
+        placeholder="Tu correo"
+        required
+        class="w-full rounded-xl border border-white/10 bg-black/30 px-4 py-3 text-white outline-none focus:border-blue-500"
+      />
+
+      <input
+        type="text"
+        name="subject"
+        placeholder="Asunto"
+        required
+        class="w-full rounded-xl border border-white/10 bg-black/30 px-4 py-3 text-white outline-none focus:border-blue-500"
+      />
+
+      <textarea
+        name="message"
+        rows="6"
+        placeholder="Escribe tu mensaje..."
+        required
+        class="w-full rounded-xl border border-white/10 bg-black/30 px-4 py-3 text-white outline-none focus:border-blue-500"
+      ></textarea>
+
+      <button
+        type="submit"
+        class="rounded-xl border border-white/10 bg-blue-600 px-6 py-3 text-white hover:bg-blue-700 transition"
+      >
+        Enviar mensaje
+      </button>
+    </form>
+  </div>
+</section>
