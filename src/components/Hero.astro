@@ -1,0 +1,81 @@
+---
+import Badge from "./Badge.astro";
+import SocialPill from "./SocialPill.astro";
+
+import LinkedInIcon from "./icons/Linkedin.astro";
+import GitHubIcon from "./icons/GitHub.astro";
+import CorreoIcon from "./icons/Correo.astro";
+import DescargaCv from "./icons/DescargaCv.astro";
+import SectionContainer from "./SectionContainer.astro";
+---
+
+<SectionContainer class="py-20">
+  <div class="max-w-3xl">
+    <!-- Avatar + Badge -->
+    <div class="flex gap-4 mb-8 items-center">
+      <div class="relative flex-shrink-0">
+        <div
+          class="absolute inset-0 rounded-full bg-cyan-400/30 blur-xl scale-125"
+        >
+        </div>
+
+        <img
+          class="relative rounded-full size-20 shadow-2xl ring-2 ring-cyan-400/60 ring-offset-2 ring-offset-black object-cover"
+          src="/Perfil.jpeg"
+          alt="Julian Torres"
+        />
+      </div>
+
+      <a
+        href="https://www.linkedin.com/in/julian-torres-b588452b3/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="transition hover:scale-105"
+      >
+        <Badge> Disponible para trabajar </Badge>
+      </a>
+    </div>
+
+    <!-- Título -->
+    <h1 class="text-4xl md:text-5xl font-bold tracking-tight text-white">
+      Hey, soy
+      <span
+        class="bg-gradient-to-r from-cyan-400 via-blue-400 to-cyan-300 bg-clip-text text-transparent"
+      >
+        Julian Torres
+      </span>
+    </h1>
+
+    <!-- Descripción -->
+    <p class="mt-6 text-lg md:text-xl text-gray-300 leading-relaxed max-w-2xl">
+      Tecnólogo en Sistemas de Información con experiencia en
+      <strong class="text-cyan-300">
+        QA Testing, validación funcional y desarrollo web
+      </strong>. He participado en pruebas de regresión, detección de errores y
+      desarrollo de aplicaciones con Laravel, PHP, Angular y MySQL.
+    </p>
+
+    <!-- Botones -->
+    <nav class="flex flex-wrap gap-4 mt-8" aria-label="Redes sociales">
+      <SocialPill href="/Cv.pdf" download="Julian_Torres_CV.pdf">
+        <DescargaCv class="size-4" />
+        Descargar CV
+      </SocialPill>
+
+      <SocialPill href="mailto:torresjulian5634@gmail.com">
+        <CorreoIcon class="size-4" />
+        Contáctame
+      </SocialPill>
+
+      <SocialPill href="https://www.linkedin.com/in/julian-torres-b588452b3/">
+        <LinkedInIcon class="size-4" />
+        LinkedIn
+      </SocialPill>
+
+      <SocialPill href="https://github.com/Julian420torres">
+        <GitHubIcon class="size-4" />
+        GitHub
+      </SocialPill>
+    </nav>
+  </div>
+</SectionContainer>

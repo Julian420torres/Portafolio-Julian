@@ -3,6 +3,9 @@ import Laravel from "../components/icons/Laravel.astro";
 import Php from "../components/icons/Php.astro";
 import Bootstrap from "../components/icons/Bootstrap.astro";
 import Mysql from "../components/icons/Mysql.astro";
+import TypeScript from "./icons/TypeScript.astro";
+import Astros from "./icons/Astros.astro";
+import Tailwind from "./icons/Tailwind.astro";
 
 const TAGS = {
   LARAVEL: {
@@ -25,6 +28,22 @@ const TAGS = {
     class: "bg-[#00758F] text-white",
     icon: Mysql,
   },
+  ASTRO: {
+  name: "Astro",
+  class: "bg-[#FF5D01] text-white",
+  icon: Astros,
+},
+TYPESCRIPT: {
+  name: "TypeScript",
+  class: "bg-[#3178C6] text-white",
+  icon: TypeScript,
+},
+
+TAILWIND: {
+  name: "Tailwind",
+  class: "bg-[#06B6D4] text-white",
+  icon: Tailwind,
+},
 };
 
 const PROJECTS = [
@@ -45,7 +64,7 @@ const PROJECTS = [
     link: "https://pianova-rouge.vercel.app/",
     github: "https://github.com/Julian420torres/Pianova",
     image: "/projects/Proyecto2.webp",
-    tags: [],
+    tags: [TAGS.ASTRO, TAGS.TYPESCRIPT, TAGS.TAILWIND,],
   },
 ];
 ---
