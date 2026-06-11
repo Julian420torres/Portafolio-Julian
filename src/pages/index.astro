@@ -14,6 +14,8 @@ import Proyect from "../components/icons/Proyect.astro";
 import Projects from "../components/Projects.astro";
 import SobreMi from "../components/Sobre_mi.astro";
 import Persona from "../components/icons/Persona.astro";
+import Contact from "../components/Contact.astro";
+import Contacto from "../components/icons/Contacto.astro";
 ---
 
 <Layout
@@ -109,6 +111,15 @@ import Persona from "../components/icons/Persona.astro";
         Sobre mí
       </h2>
       <SobreMi />
+    </SectionContainer>
+
+    <SectionContainer id="contacto">
+      <h2 class="text-3xl font-semibold mb-6 flex gap-x-3 items-center">
+        <Contacto class="size-7" />
+        Contacto
+      </h2>
+
+      <Contact />
     </SectionContainer>
   </main>
 </Layout>
