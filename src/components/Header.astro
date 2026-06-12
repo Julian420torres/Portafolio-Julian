@@ -57,18 +57,24 @@ const navItems = [
     (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
+          // Apaga todos
           navLinks.forEach((link) => {
             link.classList.remove("active");
-
-            if (link.getAttribute("aria-label") === entry.target.id) {
-              link.classList.add("active");
-            }
           });
+
+          // Enciende solo el correspondiente
+          const activeLink = document.querySelector(
+            `.nav-link[aria-label="${entry.target.id}"]`,
+          );
+
+          if (activeLink) {
+            activeLink.classList.add("active");
+          }
         }
       });
     },
     {
-      rootMargin: "-20% 0px -60% 0px",
+      rootMargin: "-30% 0px -50% 0px",
       threshold: 0,
     },
   );

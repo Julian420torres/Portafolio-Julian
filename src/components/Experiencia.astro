@@ -4,10 +4,10 @@ import ExperienciaItem from "./ExperienciaItem.astro";
 const EXPERIENCE = [
   {
     date: "Nov 2023 - Nov 2024",
-    title: "Desarrollador Web & QA Tester - ICCS",
+    title: "Desarrollador Web & QA Tester",
+    company: "ICCS",
     description:
       "Experiencia en desarrollo web con Angular, pruebas funcionales y validación de software. Participación en detección de errores, documentación técnica, soporte y mejora continua de aplicaciones internas.",
-    link: "#",
   },
 
   /*
@@ -27,11 +27,11 @@ const EXPERIENCE = [
 ];
 ---
 
-<ol class="relative border-s border-gray-200 ml-3">
+<ol class="relative mt-12" aria-label="Experiencia laboral">
   {
-    EXPERIENCE.map((experiencie) => (
-      <li class="mb-10 ms-4">
-        <ExperienciaItem {...experiencie} />
+    EXPERIENCE.map((exp, i) => (
+      <li>
+        <ExperienciaItem {...exp} />
       </li>
     ))
   }

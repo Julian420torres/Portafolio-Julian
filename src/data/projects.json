@@ -1,0 +1,17 @@
+[{
+        "title": "SISTEMA DE VENTAS",
+        "description": "Sistema de ventas para restaurante que permite gestionar pedidos, productos, clientes y ventas en tiempo real. Optimiza los procesos administrativos, mejora la organización del negocio y ofrece una interfaz intuitiva para empleados y administradores.",
+        "link": null,
+        "github": "https://github.com/Julian420torres/Proyecto-Final",
+        "image": "/projects/SistemaVentas.webp",
+        "tags": ["LARAVEL", "PHP", "BOOSTRAP", "MYSQL"]
+    },
+    {
+        "title": "PIANOVA",
+        "description": "Aplicación web interactiva para la exploración y visualización de acordes musicales en piano y guitarra. Permite buscar acordes, visualizar sus notas, consultar inversiones, mostrar posiciones en guitarra y gestionar un historial de acordes recientes mediante una interfaz moderna y responsiva.",
+        "link": "https://pianova-rouge.vercel.app/",
+        "github": "https://github.com/Julian420torres/Pianova",
+        "image": "/projects/Proyecto2.webp",
+        "tags": ["ASTRO", "TYPESCRIPT", "TAILWIND"]
+    }
+]
