@@ -6,8 +6,12 @@ import Mysql from "../components/icons/Mysql.astro";
 import TypeScript from "./icons/TypeScript.astro";
 import Astros from "./icons/Astros.astro";
 import Tailwind from "./icons/Tailwind.astro";
+import LinkButton from "./LinkButton.astro";
+import ExternalLink from "./icons/ExternalLink.astro";
+import GitHub from "./icons/GitHub.astro";
+import projectsData from "@/data/projects.json";
 
-const TAGS = {
+const TAGS: Record<string, { name: string; class: string; icon: any }> = {
   LARAVEL: {
     name: "LARAVEL",
     class: "bg-black text-white",
@@ -29,71 +33,54 @@ const TAGS = {
     icon: Mysql,
   },
   ASTRO: {
-  name: "Astro",
-  class: "bg-[#FF5D01] text-white",
-  icon: Astros,
-},
-TYPESCRIPT: {
-  name: "TypeScript",
-  class: "bg-[#3178C6] text-white",
-  icon: TypeScript,
-},
+    name: "Astro",
+    class: "bg-[#FF5D01] text-white",
+    icon: Astros,
+  },
+  TYPESCRIPT: {
+    name: "TypeScript",
+    class: "bg-[#3178C6] text-white",
+    icon: TypeScript,
+  },
 
-TAILWIND: {
-  name: "Tailwind",
-  class: "bg-[#06B6D4] text-white",
-  icon: Tailwind,
-},
+  TAILWIND: {
+    name: "Tailwind",
+    class: "bg-[#06B6D4] text-white",
+    icon: Tailwind,
+  },
 };
 
-const PROJECTS = [
-  {
-    title: "SISTEMA DE VENTAS PARA EL RESTAURANTE",
-  description:
-  "Sistema de ventas para restaurante que permite gestionar pedidos, productos, clientes y ventas en tiempo real. Optimiza los procesos administrativos, mejora la organización del negocio y ofrece una interfaz intuitiva para empleados y administradores.",
-    link: null,
-    github: "https://github.com/Julian420torres/Proyecto-Final",
-    image: "/projects/foto_proyecto.webp",
-    tags: [TAGS.LARAVEL, TAGS.PHP, TAGS.BOOSTRAP, TAGS.MYSQL],
-  },
-
-  {
-    title: "PIANOVA",
-    description:
-      "Aplicación web interactiva para la exploración y visualización de acordes musicales en piano y guitarra. Permite buscar acordes, visualizar sus notas, consultar inversiones, mostrar posiciones en guitarra y gestionar un historial de acordes recientes mediante una interfaz moderna y responsiva.",
-    link: "https://pianova-rouge.vercel.app/",
-    github: "https://github.com/Julian420torres/Pianova",
-    image: "/projects/Proyecto2.webp",
-    tags: [TAGS.ASTRO, TAGS.TYPESCRIPT, TAGS.TAILWIND,],
-  },
-];
+const PROJECTS = projectsData.map((project) => ({
+  ...project,
+  tags: project.tags.map((key) => TAGS[key]),
+}));
 ---
 
 <div class="flex flex-col gap-y-20">
   {
     PROJECTS.map(({ image, title, description, tags, link, github }) => (
-      <article class="group flex flex-col md:flex-row gap-8 items-center">
-        
-        <!-- Imagen -->
+      <article class="flex flex-col space-x-0 space-y-6 group md:flex-row md:space-x-10 md:space-y-0">
+        {/* Imagen */}
         <div class="w-full md:w-1/2">
-          <div
-            class="overflow-hidden rounded-xl border border-white/10
-            shadow-xl transition-all duration-300
-            group-hover:shadow-purple-500/20"
-          >
+          <div class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition-all duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-[0_20px_60px_-10px_rgba(83,234,253,0.2)] lg:border lg:border-gray-800 lg:hover:border-[#53eafd]/30 lg:hover:bg-gray-800/50">
             <img
-              src={image}
               alt={title}
-              class="w-full object-cover transition duration-500 group-hover:scale-105"
+              width="800"
+              height="224"
+              class="object-cover object-top w-full h-56 transition duration-500 sm:h-full md:scale-110 md:group-hover:scale-105"
+              loading="lazy"
+              src={image}
+            />
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+              aria-hidden="true"
             />
           </div>
         </div>
 
-        <!-- Información -->
+        {/* Información */}
         <div class="w-full md:w-1/2">
-          <h3 class="text-3xl font-bold text-white mb-3">
-            {title}
-          </h3>
+          <h3 class="text-3xl font-bold text-white mb-3">{title}</h3>
 
           <ul class="flex flex-wrap gap-2 mb-4">
             {tags.map((tag) => (
@@ -108,31 +95,23 @@ const PROJECTS = [
             ))}
           </ul>
 
-          <p class="text-gray-300 leading-relaxed mb-6">
-            {description}
-          </p>
+          <p class="text-gray-300 leading-relaxed mb-6">{description}</p>
 
-         <div class="flex gap-4">
-  <a
-    href={github}
-    target="_blank"
-    class="rounded-xl border border-white/20 px-5 py-2 hover:bg-white/10 transition"
-  >
-    Code
-  </a>
-
-  {link && (
-    <a
-      href={link}
-      target="_blank"
-      class="rounded-xl border border-white/20 px-5 py-2 hover:bg-white/10 transition"
-    >
-      Preview
-    </a>
-  )}
-</div>
+          <footer class="flex items-center mt-4 gap-x-4">
+            {github && (
+              <LinkButton href={github}>
+                <GitHub class="size-5" />
+                Code
+              </LinkButton>
+            )}
+            {link && (
+              <LinkButton href={link}>
+                <ExternalLink class="size-4" />
+                Preview
+              </LinkButton>
+            )}
+          </footer>
         </div>
-
       </article>
     ))
   }
