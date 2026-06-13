@@ -9,52 +9,49 @@
       un mensaje y te responderé lo antes posible.
     </p>
 
-    <form
-      action="https://formsubmit.co/torresjulian5634@gmail.com"
-      method="POST"
-      class="space-y-4"
+    <!-- Mensaje de éxito -->
+    <div
+      id="success-msg"
+      class="hidden mb-4 rounded-xl border border-green-500/30 bg-green-500/10 px-4 py-3 text-green-400"
     >
-      <!-- Configuración FormSubmit -->
-      <input type="hidden" name="_captcha" value="false" />
+      ✅ ¡Mensaje enviado correctamente! Te responderé pronto.
+    </div>
 
-      <input
-        type="hidden"
-        name="_subject"
-        value="Nuevo mensaje desde el portafolio de Julian Torres"
-      />
+    <!-- Mensaje de error -->
+    <div
+      id="error-msg"
+      class="hidden mb-4 rounded-xl border border-red-500/30 bg-red-500/10 px-4 py-3 text-red-400"
+    >
+      ❌ Hubo un error al enviar. Inténtalo de nuevo.
+    </div>
 
+    <div class="space-y-4">
       <input
-        type="hidden"
-        name="_next"
-        value="https://portafolio-julian-one.vercel.app"
-      />
-
-      <input
+        id="name"
         type="text"
-        name="name"
         placeholder="Tu nombre"
         required
         class="w-full rounded-xl border border-white/10 bg-black/30 px-4 py-3 text-white outline-none focus:border-blue-500"
       />
 
       <input
+        id="email"
         type="email"
-        name="email"
         placeholder="Tu correo electrónico"
         required
         class="w-full rounded-xl border border-white/10 bg-black/30 px-4 py-3 text-white outline-none focus:border-blue-500"
       />
 
       <input
+        id="subject"
         type="text"
-        name="subject"
         placeholder="Asunto"
         required
         class="w-full rounded-xl border border-white/10 bg-black/30 px-4 py-3 text-white outline-none focus:border-blue-500"
       />
 
       <textarea
-        name="message"
+        id="message"
         rows="6"
         placeholder="Escribe tu mensaje..."
         required
@@ -62,11 +59,56 @@
       ></textarea>
 
       <button
-        type="submit"
+        id="btn-enviar"
         class="rounded-xl border border-white/10 bg-blue-600 px-6 py-3 text-white hover:bg-blue-700 transition"
       >
         Enviar mensaje
       </button>
-    </form>
+    </div>
   </div>
 </section>
+
+<script>
+  import emailjs from "@emailjs/browser";
+
+  emailjs.init("-Knfh7ZktRvcnM_SE");
+
+  document.getElementById("btn-enviar")?.addEventListener("click", async () => {
+    const name = (document.getElementById("name") as HTMLInputElement).value;
+    const email = (document.getElementById("email") as HTMLInputElement).value;
+    const subject = (document.getElementById("subject") as HTMLInputElement)
+      .value;
+    const message = (document.getElementById("message") as HTMLTextAreaElement)
+      .value;
+
+    if (!name || !email || !subject || !message) {
+      alert("Por favor completa todos los campos.");
+      return;
+    }
+
+    const btn = document.getElementById("btn-enviar") as HTMLButtonElement;
+    btn.textContent = "Enviando...";
+    btn.disabled = true;
+
+    try {
+      await emailjs.send("service_gpve15w", "template_hxypvir", {
+        name,
+        email,
+        subject,
+        message,
+      });
+
+      document.getElementById("success-msg")?.classList.remove("hidden");
+      // Limpiar campos
+      (document.getElementById("name") as HTMLInputElement).value = "";
+      (document.getElementById("email") as HTMLInputElement).value = "";
+      (document.getElementById("subject") as HTMLInputElement).value = "";
+      (document.getElementById("message") as HTMLTextAreaElement).value = "";
+    } catch {
+      document.getElementById("error-msg")?.classList.remove("hidden");
+    } finally {
+      btn.textContent = "Enviar mensaje";
+      btn.disabled = false;
+    }
+  });
+</script>
