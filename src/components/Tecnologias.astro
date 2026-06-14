@@ -1,0 +1,81 @@
+---
+const tecnologias = [
+  {
+    nombre: "HTML",
+    icono:
+      "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg",
+  },
+  {
+    nombre: "CSS",
+    icono:
+      "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg",
+  },
+  {
+    nombre: "JavaScript",
+    icono:
+      "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+  },
+  {
+    nombre: "TypeScript",
+    icono:
+      "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
+  },
+  {
+    nombre: "Angular",
+    icono:
+      "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg",
+  },
+  {
+    nombre: "Laravel",
+    icono:
+      "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg",
+  },
+  {
+    nombre: "PHP",
+    icono:
+      "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg",
+  },
+  {
+    nombre: "MySQL",
+    icono:
+      "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg",
+  },
+  {
+    nombre: "Astro",
+    icono:
+      "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/astro/astro-original.svg",
+  },
+  {
+    nombre: "Tailwind",
+    icono:
+      "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg",
+  },
+  {
+    nombre: "Git",
+    icono:
+      "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg",
+  },
+  {
+    nombre: "Postman",
+    icono:
+      "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg",
+  },
+];
+---
+
+<div class="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 gap-4">
+  {
+    tecnologias.map((tech) => (
+      <div class="flex flex-col items-center justify-center gap-3 rounded-2xl border border-white/10 bg-white/5 p-5 backdrop-blur-sm hover:bg-white/10 hover:border-cyan-400/30 transition duration-300">
+        <img
+          src={tech.icono}
+          alt={tech.nombre}
+          class="w-10 h-10 object-contain"
+        />
+        <span class="text-sm text-gray-300 font-medium text-center">
+          {tech.nombre}
+        </span>
+      </div>
+    ))
+  }
+</div>
