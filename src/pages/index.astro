@@ -12,6 +12,8 @@ import Persona from "../components/icons/Persona.astro";
 import Contact from "../components/Contact.astro";
 import Contacto from "../components/icons/Contacto.astro";
 import Hero from "../components/Hero.astro";
+import Tecnologias from "../components/Tecnologias.astro";
+import Tecnologia from "@/components/icons/Tecnologia.astro";
 ---
 
 <Layout
@@ -44,6 +46,14 @@ import Hero from "../components/Hero.astro";
           Sobre mí
         </h2>
         <SobreMi />
+      </SectionContainer>
+
+      <SectionContainer id="tecnologias">
+        <h2 class="text-3xl font-semibold mb-6 flex gap-x-3 items-center">
+          <Tecnologia class="size-7" />
+          Tecnologías y Herramientas
+        </h2>
+        <Tecnologias />
       </SectionContainer>
 
       <SectionContainer id="contacto">
